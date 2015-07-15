@@ -1,0 +1,88 @@
+marveldb=> \dt
+              List of relations
+ Schema |       Name        | Type  | Owner  
+--------+-------------------+-------+--------
+ public | secret_identities | table | marvel
+ public | secret_identity   | table | marvel
+ public | testimonial       | table | marvel
+ public | user1             | table | marvel
+ public | user2             | table | marvel
+ public | user3             | table | marvel
+ public | user4             | table | marvel
+ public | villain           | table | marvel
+ public | villain_status    | table | marvel
+(9 rows)
+
+marveldb=> \d testimonial
+                                   Table "public.testimonial"
+   Column    |         Type          |                        Modifiers                         
+-------------+-----------------------+----------------------------------------------------------
+ id          | integer               | not null default nextval('testimonial_id_seq'::regclass)
+ hero        | text                  | 
+ title       | character varying(40) | 
+ description | text                  | 
+Indexes:
+    "testimonial_pkey" PRIMARY KEY, btree (id)
+
+marveldb=> \d user1
+                          Table "public.user1"
+  Column  |  Type   |                     Modifiers                      
+----------+---------+----------------------------------------------------
+ id       | integer | not null default nextval('user1_id_seq'::regclass)
+ username | text    | 
+ password | text    | 
+Indexes:
+    "user1_pkey" PRIMARY KEY, btree (id)
+
+marveldb=> \d user2
+                          Table "public.user2"
+  Column  |  Type   |                     Modifiers                      
+----------+---------+----------------------------------------------------
+ id       | integer | not null default nextval('user2_id_seq'::regclass)
+ username | text    | 
+ hash     | text    | 
+Indexes:
+    "user2_pkey" PRIMARY KEY, btree (id)
+
+marveldb=> \d user3
+                          Table "public.user3"
+  Column  |  Type   |                     Modifiers                      
+----------+---------+----------------------------------------------------
+ id       | integer | not null default nextval('user3_id_seq'::regclass)
+ username | text    | 
+ salt     | text    | 
+ hash     | text    | 
+Indexes:
+    "user3_pkey" PRIMARY KEY, btree (id)
+
+marveldb=> \d user4
+                          Table "public.user4"
+  Column  |  Type   |                     Modifiers                      
+----------+---------+----------------------------------------------------
+ id       | integer | not null default nextval('user4_id_seq'::regclass)
+ username | text    | 
+ salt     | text    | 
+ hash     | text    | 
+Indexes:
+    "user4_pkey" PRIMARY KEY, btree (id)
+
+marveldb=> \d villain
+                           Table "public.villain"
+  Column   |  Type   |                      Modifiers                       
+-----------+---------+------------------------------------------------------
+ id        | integer | not null default nextval('villain_id_seq'::regclass)
+ name      | text    | 
+ status_id | integer | 
+Indexes:
+    "villain_pkey" PRIMARY KEY, btree (id)
+
+marveldb=> \d villain_status
+                         Table "public.villain_status"
+ Column |  Type   |                          Modifiers                          
+--------+---------+-------------------------------------------------------------
+ id     | integer | not null default nextval('villain_status_id_seq'::regclass)
+ status | text    | 
+Indexes:
+    "villain_status_pkey" PRIMARY KEY, btree (id)
+
+
